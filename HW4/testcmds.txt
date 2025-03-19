@@ -1,0 +1,4 @@
+# Gia Hur (gxh221)
+# Test Repeated State Checking DFS
+setState 1 2 3 4 0 5 6 7 8
+solve DFS maxNodes=10

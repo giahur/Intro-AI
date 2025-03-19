@@ -1,0 +1,14 @@
+# Gia Hur (gxh221)
+# Test Repeated State Checking DFS
+setState 1 2 3 4 0 5 6 7 8
+solve DFS maxNodes=10
+stack: ['down']
+stack: ['down'] ['up']
+stack: ['down'] ['up'] ['right']
+stack: ['down'] ['up'] ['right'] ['left']
+stack: ['down'] ['up'] ['right'] ['left', 'down']
+stack: ['down'] ['up'] ['right'] ['left', 'down'] ['left', 'up']
+visited:  ['left', 'right']
+visited:  ['left', 'up', 'down']
+stack: ['down'] ['up'] ['right'] ['left', 'down'] ['left', 'up', 'right']
+Error: maxNodes limit 10 reached
