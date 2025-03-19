@@ -1,0 +1,82 @@
+# Gia Hur (gxh221)
+# Test h1
+setState 0 1 2 3 4 5 6 7 8
+h1
+0
+setState 3 1 2 6 0 5 7 4 8
+h1
+4
+setState 4 3 2 1 7 5 6 0 8
+h1
+4
+# Test h2
+setState 0 1 2 3 4 5 6 7 8
+h2
+0
+setState 3 1 2 6 0 5 7 4 8
+h2
+4
+setState 4 3 2 1 7 5 6 0 8
+h2
+7
+# Test invalid commands for A*
+solve A*
+Error: invalid solve command
+solve A* h3
+Error: invalid heuristic
+solve A* h1 maxNodes=hello
+Error: invalid maxNodes value
+# Test A* h1
+setState 0 1 2 3 4 5 6 7 8
+solve A* h1 maxNodes=2
+Nodes created during search: 1
+Solution length: 0
+Move sequence:
+setState 3 1 2 6 0 5 7 4 8
+solve A* h1
+Nodes created during search: 10
+Solution length: 4
+Move sequence:
+move down
+move left
+move up
+move up
+setState 4 3 2 1 7 5 6 0 8
+solve A* h1
+Nodes created during search: 34
+Solution length: 7
+Move sequence:
+move up
+move up
+move left
+move down
+move right
+move up
+move left
+# Test A* h2
+setState 0 1 2 3 4 5 6 7 8
+solve A* h2 maxNodes=2
+Nodes created during search: 1
+Solution length: 0
+Move sequence:
+setState 3 1 2 6 0 5 7 4 8
+solve A* h1
+Nodes created during search: 10
+Solution length: 4
+Move sequence:
+move down
+move left
+move up
+move up
+setState 4 3 2 1 7 5 6 0 8
+solve A* h2
+Nodes created during search: 26
+Solution length: 7
+Move sequence:
+move up
+move up
+move left
+move down
+move right
+move up
+move left
