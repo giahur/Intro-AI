@@ -1,0 +1,55 @@
+# Gia Hur (gxh221)
+
+# Test setState and printState
+
+    # Test 1: Good Data
+        setState 7 2 4 5 0 6 8 3 1
+        printState
+
+    # Test 2: Bad Data (incorrect length)
+        setState 7 2 4 5 0 6 8 3 1 5
+        setState 7 2 4 5 0 6 8 3
+
+    # Test 3: Bad Data (correct length, characters outside 0-8)
+        setState 7 2 4 5 0 6 8 3 10
+        setState 
+
+    # Test 4: Bad Data (correct length, characters 0-8, duplicates)
+        setState 7 2 4 5 0 6 8 3 3
+
+# Test move (and helper findZero)
+
+    # Test 5: Good Data (valid moves)
+        move left
+        move right
+        move up
+        move down
+
+    # Test 6: Bad Data (direction not left, right, up, down)
+        move
+        move gia
+        move up up
+
+    # Test 7: Bad Data (invalid move, out of bounds)
+        setState 0 2 4 5 7 6 8 3 1
+        move left
+        move up
+
+        setState 7 2 4 5 1 6 8 3 0
+        move right
+        move down
+
+# Test scrambleState
+
+    # Test 8: Good Data (integer value)
+        scrambleState 5
+
+    # Test 8: Bad Data (noninteger value)
+        scrambleState
+        scrambleState 5 5
+        scrambleState gia
+
+# Test invalid command
+
+    # Test 10: Bad Data
+        hello my name is gia

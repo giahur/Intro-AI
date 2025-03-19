@@ -1,0 +1,37 @@
+Gia Hur (gxh221)
+
+Puzzle state set
+['7', '2', '4']
+['5', '0', '6']
+['8', '3', '1']
+Error: invalid puzzle state
+Error: invalid puzzle state
+Error: invalid puzzle state
+Error: invalid puzzle state
+Error: invalid puzzle state
+Move successful
+Move successful
+Move successful
+Move successful
+Error: invalid move, must be 'left', 'right', 'up', 'down'
+Error: invalid move, must be 'left', 'right', 'up', 'down'
+Error: invalid move, must be 'left', 'right', 'up', 'down'
+Puzzle state set
+Error: invalid move
+Error: invalid move
+Puzzle state set
+Error: invalid move
+Error: invalid move
+Error: invalid move
+Error: invalid move
+Move successful
+Error: invalid move
+Move successful
+Move successful
+Move successful
+Move successful
+Puzzle scrambled
+Error: invalid number of scrambles, must be integer
+Error: invalid number of scrambles, must be integer
+Error: invalid number of scrambles, must be integer
+Error: invalid command: hello my name is gia
