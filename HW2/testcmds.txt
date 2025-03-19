@@ -1,0 +1,31 @@
+# Gia Hur (gxh221)
+
+# Test BFS 
+    # Test 1: Bad Data
+        setState 0 1 2 3 4 5 6 7 8
+        solve
+        solve hello
+        solve BFS maxNodes
+        solve BFS maxNodes=hello
+
+    # Test 2: Good Data
+        solve BFS
+        setState 1 2 0 3 4 5 6 7 8
+        solve BFS maxNodes=1
+        setState 1 4 2 3 5 0 6 7 8
+        solve BFS
+
+# Test DFS
+    # Test 3: Bad Data
+        setState 0 1 2 3 4 5 6 7 8
+        solve
+        solve hello
+        solve DFS maxNodes
+        solve DFS maxNodes=hello
+
+    # Test 4: Good Data
+        solve DFS
+        setState 1 2 0 3 4 5 6 7 8
+        solve DFS maxNodes=1
+        setState 1 4 2 3 5 0 6 7 8
+        solve DFS

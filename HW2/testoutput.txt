@@ -1,0 +1,50 @@
+# Gia Hur (gxh221)
+# Test BFS
+# Test 1: Bad Data
+setState 0 1 2 3 4 5 6 7 8
+solve
+invalid solve command, must be BFS or DFS
+solve hello
+Error: invalid solve command, must be BFS or DFS
+solve BFS maxNodes
+Error: invalid maxNodes value
+solve BFS maxNodes=hello
+Error: invalid maxNodes value
+# Test 2: Good Data
+solve BFS
+Nodes created during search: 1
+Solution length: 0
+Move sequence:
+setState 1 2 0 3 4 5 6 7 8
+solve BFS maxNodes=1
+Error: maxnodes limit (1) reached
+setState 1 4 2 3 5 0 6 7 8
+solve BFS
+Nodes created during search: 19
+Solution length: 3
+Move sequence:
+move left
+move up
+move left
+# Test DFS
+# Test 3: Bad Data
+setState 0 1 2 3 4 5 6 7 8
+solve
+invalid solve command, must be BFS or DFS
+solve hello
+Error: invalid solve command, must be BFS or DFS
+solve DFS maxNodes
+Error: invalid maxNodes value
+solve DFS maxNodes=hello
+Error: invalid maxNodes value
+# Test 4: Good Data
+solve DFS
+Nodes created during search: 1
+Solution length: 0
+Move sequence:
+setState 1 2 0 3 4 5 6 7 8
+solve DFS maxNodes=1
+Error: maxnodes limit (1) reached
+setState 1 4 2 3 5 0 6 7 8
+solve DFS
+Error: maxnodes limit (1000) reached
