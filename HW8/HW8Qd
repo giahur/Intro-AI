@@ -1,0 +1,65 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+irisData = pd.read_csv('irisdata.csv')
+X = irisData.iloc[:, [2, 3]].values  # Select only Petal Length and Petal Width
+
+# K-means clustering function
+def kMeansCluster(k, points, max_iters=100):
+    means = points[np.random.choice(points.shape[0], k, replace=False)]
+    objectiveValues = []
+
+    for _ in range(max_iters):
+        clusters = [[] for _ in range(k)]
+        labels = np.zeros(len(points))
+        for i, point in enumerate(points):
+            distances = [np.sum((point - mean) ** 2) for mean in means]
+            clusterAssignment = np.argmin(distances)
+            clusters[clusterAssignment].append(point)
+            labels[i] = clusterAssignment
+        
+        newMeans = [np.mean(cluster, axis=0) for cluster in clusters]
+        objective = sum(np.sum((X[labels == k] - means[k]) ** 2) for k in range(len(means)))
+        objectiveValues.append(objective)
+
+        if np.allclose(newMeans, means):
+            break
+        
+        means = newMeans
+
+    return np.array(means), labels, objectiveValues
+
+# decision boundaries
+def plotDecisionBoundaries(X, k, means, labels):
+    # grid of points
+    x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+    y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+    xx, yy = np.meshgrid(np.arange(x_min, x_max, 0.1), np.arange(y_min, y_max, 0.1))
+
+    # distance to centers
+    Z = np.zeros(xx.shape)
+    for i in range(xx.shape[0]):
+        for j in range(xx.shape[1]):
+            point = np.array([xx[i, j], yy[i, j]])
+            distances = [np.sum((point - mean) ** 2) for mean in means]
+            Z[i, j] = np.argmin(distances)
+
+    # decision boundaries
+    plt.contourf(xx, yy, Z, alpha=0.4, cmap='viridis')
+    plt.scatter(X[:, 0], X[:, 1], c=labels, cmap='viridis', edgecolors='k', marker='o')
+    plt.scatter(means[:, 0], means[:, 1], c='red', marker='x', s=100, label='Cluster Centers')
+    plt.xlabel("Petal Length")
+    plt.ylabel("Petal Width")
+    plt.title(f"Decision Boundaries for K={k}")
+    plt.legend()
+    plt.show()
+
+# k-means clustering with K=2 and K=3
+K_values = [2, 3]
+for K in K_values:
+    print(f"\nRunning k-means with K={K}")
+    means, labels, objectiveValues = kMeansCluster(K, X)
+
+    # decision boundaries
+    plotDecisionBoundaries(X, K, means, labels)
